@@ -1,5 +1,5 @@
 #NEXUS
-[written Mon Apr 29 09:11:51 CDT 2019 by Mesquite  version 3.40 (build 877) at wireless-10-146-127-146.public.utexas.edu/10.146.127.146]
+[written Mon Apr 29 09:36:22 CDT 2019 by Mesquite  version 3.40 (build 877) at wireless-10-146-127-146.public.utexas.edu/10.146.127.146]
 
 BEGIN TAXA;
 	TITLE Taxa;
@@ -38,7 +38,7 @@ BEGIN TREES;
 [19] 		20 Sapajus_apella,
 [20] 		21 Saimiri_boliviensis,
 [21] 		22 Saimiri_oerstedii;
-	TREE UNTITLED = ((((1:6.2,2:6.2):13.7,(3:16,4:16):3.9):3.4,(((5:6.8,6:6.8):4.1,(7:9.9,8:9.9):1):9.8,(9:11.2,10:11.2):9.5):2.6):1.2,((((13:1.5,11:1.5):0.7942162609952615,12:6.8):0.7433082903601845,14:8):2.625,((((15:1.1,16:1.1):14.2,17:15.3):1,(18:9.5,19:9.5):6.8):4.7,(20:18.7,(21:3.6,22:3.6):15.1):2.3):1.75):1.75)[% ] [% ] [%  setBetweenBits = selected ];
+	TREE UNTITLED = ((((1:6.2,2:6.2):13.7,(3:16,4:16):3.9):3.4,(((5:6.8,6:6.8):4.1,(7:9.9,8:9.9):1):9.8,(9:11.2,10:11.2):9.5):2.6):1.2,((((13:1.5,11:1.5):0.7942162609952615,12:6.8):0.7433082903601845,14:8):2.625,((((15:1.1,16:1.1):14.2,17:15.3):1,(18:9.5,19:9.5):6.8):4.7,(20:18.7,(21:3.6,22:3.6):15.1):2.3):1.75):1.75);
 
 END;
 
@@ -47,7 +47,7 @@ Begin MESQUITE;
 		MESQUITESCRIPTVERSION 2;
 		TITLE AUTO;
 		tell ProjectCoordinator;
-		timeSaved 1556547112223;
+		timeSaved 1556548583061;
 		getEmployee #mesquite.minimal.ManageTaxa.ManageTaxa;
 		tell It;
 			setID 0 8758489636279218802;
@@ -128,7 +128,7 @@ Begin MESQUITE;
 					setFontSize 10;
 					getToolPalette;
 					tell It;
-						setTool mesquite.trees.BasicTreeWindowMaker.BasicTreeWindow.arrow;
+						setTool mesquite.trees.BranchLengthsAdjust.AdjustToolExtra.adjustor;
 					endTell;
 					setActive;
 					getTreeDrawCoordinator #mesquite.trees.BasicTreeDrawCoordinator.BasicTreeDrawCoordinator;
@@ -138,7 +138,7 @@ Begin MESQUITE;
 					tell It;
 						setNodeLocs #mesquite.trees.NodeLocsStandard.NodeLocsStandard;
 						tell It;
-							branchLengthsToggle off;
+							branchLengthsToggle on;
 							toggleScale on;
 							toggleBroadScale off;
 							toggleCenter on;
@@ -174,12 +174,51 @@ Begin MESQUITE;
 					endTell;
 				endTell;
 					setTreeNumber 1;
+					setTree '((((1:6.2,2:6.2):13.7,(3:16,4:16):3.9):3.4,(((5:6.8,6:6.8):4.1,(7:9.9,8:9.9):1):9.8,(9:11.2,10:11.2):9.5):2.6):1.2,((((13:1.8,11:1.8):5,12:6.85):1.77,14:8.7):14,((((15:1.1,16:1.1):14.2,17:15.3):1,(18:9.5,19:9.5):6.8):4.7,(20:18.7,(21:3.6,22:3.6):15.1):2.3):1.75):1.75);';
 					setDrawingSizeMode 0;
 					toggleLegendFloat on;
 					scale 0;
 					toggleTextOnTree off;
 					togglePrintName on;
 					showWindow;
+					newAssistant  #mesquite.trees.ValuesAtNodes.ValuesAtNodes;
+				tell It;
+					suppress;
+					setNumForNodes #mesquite.treefarm.NodeDepth.NodeDepth;
+					setDisplay #mesquite.trees.ShadeNumbersOnTree.ShadeNumbersOnTree;
+					tell It;
+						toggleLabels off;
+						toggleLabelTerminals on;
+						toggleColor on;
+						toggleShade on;
+						toggleRectangle off;
+						toggleLog off;
+						toggleDisplayPercentage off;
+						setDigits 4;
+					endTell;
+					setInitialOffsetX 4;
+					setInitialOffsetY -253;
+					desuppress;
+				endTell;
+					newAssistant  #mesquite.trees.ValuesAtNodes.ValuesAtNodes;
+				tell It;
+					suppress;
+					setNumForNodes #mesquite.treefarm.NodeDepth.NodeDepth;
+					setDisplay #mesquite.trees.ShadeNumbersOnTree.ShadeNumbersOnTree;
+					tell It;
+						toggleLabels off;
+						toggleLabelTerminals off;
+						toggleColor off;
+						toggleShade off;
+						toggleRectangle off;
+						toggleLog off;
+						toggleDisplayPercentage off;
+						setDigits 4;
+					endTell;
+					setInitialOffsetX 4;
+					setInitialOffsetY -253;
+					desuppress;
+				endTell;
 				endTell;
 				desuppressEPCResponse;
 				getEmployee #mesquite.trees.ColorBranches.ColorBranches;
